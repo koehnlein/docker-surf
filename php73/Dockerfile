@@ -1,6 +1,6 @@
 FROM composer:1 AS composer
 
-FROM php:7.2-alpine
+FROM php:7.3-alpine
 
 # Inspired by official "composer" docker image
 RUN apk --no-cache add curl git subversion openssh openssl mercurial tini bash zlib-dev libpng-dev $PHPIZE_DEPS

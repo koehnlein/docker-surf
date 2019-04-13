@@ -23,8 +23,8 @@ RUN yarn global add gulp-cli \
 	&& rm -f ~/.dummy
 
 # add php packages
-RUN apt-get install php7.1-cli -y
-RUN apt-get install php7.1-xml php7.1-gd php7.1-mbstring php7.1-curl php7.1-zip php7.1-mysqli php-xdebug -y
+RUN apt-get install php7.2-cli -y
+RUN apt-get install php7.2-xml php7.2-gd php7.2-mbstring php7.2-curl php7.2-zip php7.2-mysqli php-xdebug -y
 
 # install composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
