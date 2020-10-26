@@ -1,5 +1,6 @@
 #!/bin/bash
 
+docker build --pull . -f debian/php74/Dockerfile -t akoehnlein/surf:php74-debian && docker run -it -v `pwd`/tests.sh:/tmp/test.sh akoehnlein/surf:php74-debian /tmp/test.sh && \
 docker build --pull . -f debian/php73/Dockerfile -t akoehnlein/surf:php73-debian && docker run -it -v `pwd`/tests.sh:/tmp/test.sh akoehnlein/surf:php73-debian /tmp/test.sh && \
 docker build --pull . -f debian/php72/Dockerfile -t akoehnlein/surf:php72-debian && docker run -it -v `pwd`/tests.sh:/tmp/test.sh akoehnlein/surf:php72-debian /tmp/test.sh && \
 docker build --pull . -f debian/php71/Dockerfile -t akoehnlein/surf:php71-debian && docker run -it -v `pwd`/tests.sh:/tmp/test.sh akoehnlein/surf:php71-debian /tmp/test.sh && \
