@@ -15,6 +15,8 @@ Includes pre installed
 
 Choose your PHP version and OS by using the matching tag:
 
+* `akoehnlein/surf:php74` PHP 7.4, Alpine
+* `akoehnlein/surf:php74-debian` PHP 7.4, Debian
 * `akoehnlein/surf:php73` PHP 7.3, Alpine
 * `akoehnlein/surf:php73-debian` PHP 7.3, Debian
 * `akoehnlein/surf:php72` PHP 7.2, Alpine
