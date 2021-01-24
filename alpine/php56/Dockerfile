@@ -3,13 +3,13 @@ FROM composer:1 AS composer
 FROM php:5.6-alpine
 
 # Inspired by official "composer" docker image
-RUN apk --no-cache add curl git subversion openssh openssl mercurial tini bash zlib-dev libpng-dev $PHPIZE_DEPS
+RUN apk --no-cache add curl git subversion openssh openssl mercurial tini bash zlib-dev libpng-dev icu-dev $PHPIZE_DEPS
 
 RUN echo "memory_limit=-1" > "$PHP_INI_DIR/conf.d/memory-limit.ini" \
  && echo "date.timezone=${PHP_TIMEZONE:-UTC}" > "$PHP_INI_DIR/conf.d/date_timezone.ini"
 
 # Install some php modules so we can use this image to run functional tests
-RUN docker-php-ext-install zip mysqli gd \
+RUN docker-php-ext-install zip mysqli gd intl \
     && pecl install xdebug-2.5.5 \
     && echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > "$PHP_INI_DIR/conf.d/xdebug.ini"
 

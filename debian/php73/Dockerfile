@@ -24,7 +24,7 @@ RUN yarn global add gulp-cli \
 
 # add php packages
 RUN apt-get install php7.3-cli -y
-RUN apt-get install php7.3-xml php7.3-gd php7.3-mbstring php7.3-curl php7.3-zip php7.3-mysqli php-xdebug -y
+RUN apt-get install php7.3-xml php7.3-gd php7.3-mbstring php7.3-curl php7.3-zip php7.3-mysqli php7.3-intl php-xdebug -y
 
 # install composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
