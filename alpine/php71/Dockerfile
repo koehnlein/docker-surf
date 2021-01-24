@@ -10,7 +10,7 @@ RUN echo "memory_limit=-1" > "$PHP_INI_DIR/conf.d/memory-limit.ini" \
 
 # Install some php modules so we can use this image to run functional tests
 RUN docker-php-ext-install zip mysqli gd intl \
-    && pecl install xdebug \
+    && pecl install xdebug-2.9.8 \
     && echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > "$PHP_INI_DIR/conf.d/xdebug.ini"
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
