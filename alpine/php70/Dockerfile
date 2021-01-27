@@ -9,14 +9,12 @@ RUN echo "memory_limit=-1" > "$PHP_INI_DIR/conf.d/memory-limit.ini" \
  && echo "date.timezone=${PHP_TIMEZONE:-UTC}" > "$PHP_INI_DIR/conf.d/date_timezone.ini"
 
 # Install some php modules so we can use this image to run functional tests
-RUN docker-php-ext-install zip mysqli gd intl \
-    && pecl install xdebug-2.7.2 \
-    && echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > "$PHP_INI_DIR/conf.d/xdebug.ini"
+RUN docker-php-ext-install zip mysqli gd intl
 
 # https://gist.github.com/johndatserakis/825a16a7f3cef4e8b4dbfbb1e80b9f9c#gistcomment-3110335
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
-    install-php-extensions imagick
+    install-php-extensions imagick xdebug-^2.7
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /tmp
