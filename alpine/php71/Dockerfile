@@ -14,7 +14,7 @@ RUN docker-php-ext-install zip mysqli gd intl
 # https://gist.github.com/johndatserakis/825a16a7f3cef4e8b4dbfbb1e80b9f9c#gistcomment-3110335
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
-    install-php-extensions imagick xdebug-^2
+    install-php-extensions imagick soap xdebug-^2
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /tmp

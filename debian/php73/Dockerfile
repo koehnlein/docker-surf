@@ -23,7 +23,7 @@ RUN yarn global add gulp-cli \
 	&& rm -f ~/.dummy
 
 # add php packages
-RUN apt-get install php7.3-cli php7.3-xml php7.3-gd php7.3-mbstring php7.3-curl php7.3-zip php7.3-mysqli php7.3-intl php7.3-imagick php7.3-sqlite php7.3-xdebug -y \
+RUN apt-get install php7.3-cli php7.3-xml php7.3-gd php7.3-mbstring php7.3-curl php7.3-zip php7.3-mysqli php7.3-intl php7.3-imagick php7.3-sqlite php7.3-soap php7.3-xdebug -y \
 	&& echo "xdebug.mode=coverage" >> /etc/php/7.3/cli/conf.d/20-xdebug.ini
 
 # install composer
