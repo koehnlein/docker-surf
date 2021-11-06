@@ -7,10 +7,10 @@ RUN apt-get update \
 	&& apt-get install apt-transport-https gnupg curl -y \
 	&& curl https://packages.sury.org/php/apt.gpg | apt-key add - \
 	&& echo 'deb https://packages.sury.org/php/ buster main' > /etc/apt/sources.list.d/php.list \
-	&& apt-get update
+	&& apt-get update --fix-missing
 
-# install non-php images
-RUN apt-get install rsync git unzip npm nodejs -y
+# install non-php packages
+RUN apt-get install rsync git unzip npm nodejs imagemagick -y
 
 # install yarn
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash

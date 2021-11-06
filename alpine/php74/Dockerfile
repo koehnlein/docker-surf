@@ -3,7 +3,7 @@ FROM composer:1 AS composer
 FROM php:7.4-alpine
 
 # Inspired by official "composer" docker image
-RUN apk --no-cache add curl git subversion openssh openssl mercurial tini bash libzip-dev zlib-dev libpng-dev icu-dev $PHPIZE_DEPS
+RUN apk --no-cache add curl git subversion openssh openssl mercurial tini bash libzip-dev zlib-dev libpng-dev icu-dev $PHPIZE_DEPS imagemagick
 
 RUN echo "memory_limit=-1" > "$PHP_INI_DIR/conf.d/memory-limit.ini" \
  && echo "date.timezone=${PHP_TIMEZONE:-UTC}" > "$PHP_INI_DIR/conf.d/date_timezone.ini"
